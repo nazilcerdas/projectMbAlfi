@@ -1,0 +1,35 @@
+<table class="table table-bordered table-hover table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Detail</th>
+            <th width="150" class="text-center">Action</th>
+        </tr>
+    </thead>
+    <!->
+        Using FOREACH LOOP for the product array
+    -->
+    <% if (data) { %>
+        <% data.forEach(function(product){ %>
+            <tr>
+                <td><%= product.name %></td>
+                <td><%= product.price %></td>
+                <td><%= product.detail %></td>
+                <td class="text-center">
+                    <a href='/products/edit/<%= product.id %>' class="btn btn-info text-white btn-sm inline-block">Edit</a>                            >
+                    <form method="post" action="/products/delete/<%= product.id %>" class="d-inline-block">
+                        <input type="submit" name="delete" value='Delete' class="btn btn-danger btn-sm" onClick="return confirm('Are you sure you want to delete?')" />
+                        <input type="hidden" name="_method" value="DELETE" />
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    <% } %>
+</table>
+</div>
+</div>
+</div>
+
+</body>
+</html>

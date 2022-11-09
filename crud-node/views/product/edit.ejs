@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Product</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">>
+
+    <div class="row mt-5">
+        <!-- heading -->
+        <div class="col-lg-6 col-md-6 pt-3">
+            <h3>Edit Product</h3>
+        </div>
+
+        <div class="col-lg-6 col-md-6 text-end pt-3">
+            <a href="/products" class="btn btn-primary btn-sm">Back</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- alert message -->
+        <div class="col-lg-12 col-md-12 mt-2">
+            <% if (messages.error) { %>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <%- messages.error %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <% } %>
+        </div>
+
+        <!-- add data form -->
+        <div class="col-lg-12 col-md-12">
+            <form action="/products/edit/<%= id %>" method="POST" name="form1">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group mt-3">
+                            <strong>Name:</strong>
+                            <input type="text" name="name" id="name" value="<%= name %>" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group mt-3">
+                            <strong>Price:</strong>
+                            <input type="text" name="price" value="<%= price %>" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group mt-3">
+                            <strong>Detail:</strong>
+                            <textarea type="text" name="detail" value="<%= detail %>" class="form-control"><%= detail %></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group mt-3">
+                            <input type="submit" class="btn btn-success btn-sm">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
